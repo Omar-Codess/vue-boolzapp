@@ -31,6 +31,7 @@ img{
 /* COMMON */
 nav{
     height: 10%;
+    background-color: #eaeaea;
     border: 1px solid black;
 }
 
@@ -41,12 +42,19 @@ nav{
     border-radius: 50px;
 }
 
+.white{
+    background-color: white;
+}
+
+.light-blue{
+    background-color: #8edafc;
+}
 
 /* MAIN */
 .big-container{
     width: 100vw;
     height: 100vh;
-    background-color: lightgrey;
+    background-color: #d9dbd5;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -78,3 +86,10 @@ nav{
     width: 65%;
     border: 1px solid black;
 }
+
+.chat-container{
+    height: 90%;
+    border: 1px solid red;
+    background-image: url(../img/mine.jpg);
+}
+
