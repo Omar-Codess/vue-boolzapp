@@ -10,6 +10,38 @@ html{
     box-sizing: border-box;
 }
 
+img{
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+/* UTILITIES */
+.flex{
+    display: flex;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.align-center{
+    align-items: center;
+}
+
+/* COMMON */
+nav{
+    height: 10%;
+    border: 1px solid black;
+}
+
+.avatar-img{
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+}
+
+
 /* MAIN */
 .big-container{
     width: 100vw;
@@ -27,12 +59,15 @@ html{
     display: flex;
 }
 
+/* LEFT COL */
 .left-col{
     height: 100%;
     width: 35%;
     border: 1px solid black;
 }
 
+
+/* RIGHT COL */
 .right-col{
     height: 100%;
     width: 65%;
