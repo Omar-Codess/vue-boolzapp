@@ -24,9 +24,17 @@ html{
     width: 80%;
     height: 90%;
     border: solid 1px black;
+    display: flex;
 }
 
 .left-col{
-    height: 90%;
-    wid
+    height: 100%;
+    width: 35%;
+    border: 1px solid black;
+}
+
+.right-col{
+    height: 100%;
+    width: 65%;
+    border: 1px solid black;
 }
