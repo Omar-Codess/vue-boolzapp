@@ -66,6 +66,11 @@ nav{
     border: 1px solid black;
 }
 
+.generic-col{
+    height: 10%;
+    border: 1px solid black;
+    display: flex;
+}
 
 /* RIGHT COL */
 .right-col{
