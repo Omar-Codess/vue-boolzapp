@@ -146,7 +146,9 @@
                         </nav>
                         <div class="chat-container p-relative">
                             <div class="message-row sent" v-for="contact in contacts">
-                                <div class="message">{{ contact.messages[current].message }}</div>
+                                <div class="message" v-for="message in contact.messages">
+                                    {{ message.message }}
+                                </div>
                             </div>
                             <!-- <div class="message-row sent">
                                 <div class="message">Ricordati di stendere i panni</div>
