@@ -15,121 +15,127 @@
 
     <!-- Style css -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
     <title>Document</title>
 </head>
 <body>
     <main>
-        <div class="big-container">
-            <div class="small-container">
-                <div class="left-col">
-                    <nav class="flex space-between align-center">
-                        <div class="flex">
-                            <div class="avatar-img">
-                                <img src="img/avatar_io.jpg" alt="">
+        <div id="app">
+            <div class="big-container">
+                <div class="small-container">
+                    <div class="left-col">
+                        <nav class="flex space-between align-center">
+                            <div class="flex">
+                                <div class="avatar-img">
+                                    <img src="img/avatar_io.jpg" alt="">
+                                </div>
+                                <p>Sofia</p>
                             </div>
-                            <p>Sofia</p>
+                            <span>
+                                <i class="fa-solid fa-circle-notch"></i>
+                                <i class="fa-regular fa-message"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </span>
+                        </nav>
+                        <div class="generic-col light-blue">
+                            
                         </div>
-                        <span>
-                            <i class="fa-solid fa-circle-notch"></i>
-                            <i class="fa-regular fa-message"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </span>
-                    </nav>
-                    <div class="generic-col light-blue">
-                        
-                    </div>
-                    <div class="generic-col white">
-                        <div class="avatar-img">
-                            <img src="img/avatar_io.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>Michele</p>
-                            <p>Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="generic-col white">
-                        <div class="avatar-img">
-                            <img src="img/avatar_io.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>Michele</p>
-                            <p>Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="generic-col white">
-                        <div class="avatar-img">
-                            <img src="img/avatar_io.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>Michele</p>
-                            <p>Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="generic-col white">
-                        <div class="avatar-img">
-                            <img src="img/avatar_io.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>Michele</p>
-                            <p>Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="generic-col white">
-                        <div class="avatar-img">
-                            <img src="img/avatar_io.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>Michele</p>
-                            <p>Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="generic-col white">
-                        <div class="avatar-img">
-                            <img src="img/avatar_io.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>Michele</p>
-                            <p>Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="generic-col white">
-                        <div class="avatar-img">
-                            <img src="img/avatar_io.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>Michele</p>
-                            <p>Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                    <div class="generic-col white">
-                        <div class="avatar-img">
-                            <img src="img/avatar_io.jpg" alt="">
-                        </div>
-                        <div>
-                            <p>Michele</p>
-                            <p>Ultimo messaggio inviato</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="right-col">
-                    <nav class="flex align-center space-between">
-                        <div class="flex">
+                        <div class="generic-col white">
                             <div class="avatar-img">
                                 <img src="img/avatar_io.jpg" alt="">
                             </div>
                             <div>
-                                <p>Sofia</p>
-                                <p>Ultimo accesso oggi alle 12.00</p>
+                                <p>Michele</p>
+                                <p>Ultimo messaggio inviato</p>
                             </div>
                         </div>
-                        <span>
-                            <i class="fa-solid fa-magnifying-glass"></i>
-                            <i class="fa-solid fa-paperclip"></i>
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                        </span>
-                    </nav>
-                    <div class="chat-container">
+                        <div class="generic-col white">
+                            <div class="avatar-img">
+                                <img src="img/avatar_io.jpg" alt="">
+                            </div>
+                            <div>
+                                <p>Michele</p>
+                                <p>Ultimo messaggio inviato</p>
+                            </div>
+                        </div>
+                        <div class="generic-col white">
+                            <div class="avatar-img">
+                                <img src="img/avatar_io.jpg" alt="">
+                            </div>
+                            <div>
+                                <p>Michele</p>
+                                <p>Ultimo messaggio inviato</p>
+                            </div>
+                        </div>
+                        <div class="generic-col white">
+                            <div class="avatar-img">
+                                <img src="img/avatar_io.jpg" alt="">
+                            </div>
+                            <div>
+                                <p>Michele</p>
+                                <p>Ultimo messaggio inviato</p>
+                            </div>
+                        </div>
+                        <div class="generic-col white">
+                            <div class="avatar-img">
+                                <img src="img/avatar_io.jpg" alt="">
+                            </div>
+                            <div>
+                                <p>Michele</p>
+                                <p>Ultimo messaggio inviato</p>
+                            </div>
+                        </div>
+                        <div class="generic-col white">
+                            <div class="avatar-img">
+                                <img src="img/avatar_io.jpg" alt="">
+                            </div>
+                            <div>
+                                <p>Michele</p>
+                                <p>Ultimo messaggio inviato</p>
+                            </div>
+                        </div>
+                        <div class="generic-col white">
+                            <div class="avatar-img">
+                                <img src="img/avatar_io.jpg" alt="">
+                            </div>
+                            <div>
+                                <p>Michele</p>
+                                <p>Ultimo messaggio inviato</p>
+                            </div>
+                        </div>
+                        <div class="generic-col white">
+                            <div class="avatar-img">
+                                <img src="img/avatar_io.jpg" alt="">
+                            </div>
+                            <div>
+                                <p>Michele</p>
+                                <p>Ultimo messaggio inviato</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="right-col">
+                        <nav class="flex align-center space-between">
+                            <div class="flex">
+                                <div class="avatar-img">
+                                    <img src="img/avatar_io.jpg" alt="">
+                                </div>
+                                <div>
+                                    <p>Sofia</p>
+                                    <p>Ultimo accesso oggi alle 12.00</p>
+                                </div>
+                            </div>
+                            <span>
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                                <i class="fa-solid fa-paperclip"></i>
+                                <i class="fa-solid fa-ellipsis-vertical"></i>
+                            </span>
+                        </nav>
+                        <div class="chat-container">
 
+                        </div>
                     </div>
                 </div>
             </div>
