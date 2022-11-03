@@ -32,6 +32,9 @@ img{
     justify-content: center;
 }
 
+.p-relative{
+    position: relative;
+}
 /* COMMON */
 nav{
     height: 10%;
@@ -84,12 +87,11 @@ nav{
     display: flex;
 }
 
-input{
+#left-col-input{
     width: 99%;
     height: 30px;
     margin-top: .2rem;
-    margin-bottom: .2rem;
-    
+    margin-bottom: .2rem;  
 }
 
 /* RIGHT COL */
@@ -135,4 +137,19 @@ input{
 
 .message-row.received .message{
     background-color: white;
+}
+
+/* Footer right col */
+.new-message {
+    height: 70px;
+    width: 100%;
+    background-color: lightgray;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+#right-col-input{
+    height: 80%;
+    width: 70%;
 }

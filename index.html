@@ -49,7 +49,7 @@
                         
                         <!-- Search bar -->
                         <div class="flex justify-center">
-                            <input type="text" placeholder="Cerca o inizia una nuova ricerca">
+                            <input id="left-col-input" type="text" placeholder="Cerca o inizia una nuova ricerca">
                         </div>
                         <!-- /Search bar -->
                         
@@ -144,7 +144,7 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </span>
                         </nav>
-                        <div class="chat-container">
+                        <div class="chat-container p-relative">
                             <div class="message-row sent">
                                 <div class="message">Hai portato a spasso il cane?</div>
                             </div>
@@ -154,6 +154,9 @@
                             <div class="message-row received">
                                 <div class="message">Tutto fatto!</div>
                             </div>
+                            <footer class="new-message flex justify-center align-center">
+                                <input id="right-col-input" type="text" placeholder="Scrivi un messaggio">
+                            </footer>
                         </div>
                     </div>
                 </div>
