@@ -145,15 +145,15 @@
                             </span>
                         </nav>
                         <div class="chat-container p-relative">
-                            <div class="message-row sent">
-                                <div class="message">Hai portato a spasso il cane?</div>
+                            <div class="message-row sent" v-for="contact in contacts">
+                                <div class="message">{{ contact.messages[current].message }}</div>
                             </div>
-                            <div class="message-row sent">
+                            <!-- <div class="message-row sent">
                                 <div class="message">Ricordati di stendere i panni</div>
                             </div>
                             <div class="message-row received">
                                 <div class="message">Tutto fatto!</div>
-                            </div>
+                            </div> -->
                             <footer class="new-message flex justify-center align-center">
                                 <input id="right-col-input" type="text" placeholder="Scrivi un messaggio">
                             </footer>
