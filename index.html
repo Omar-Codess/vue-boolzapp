@@ -27,6 +27,7 @@
             <div class="big-container">
                 <div class="small-container">
                     <div class="left-col">
+                        <!-- User bar -->
                         <nav class="flex space-between align-center">
                             <div class="flex">
                                 <div class="avatar-img">
@@ -40,17 +41,22 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </span>
                         </nav>
+                        <!-- /User bar -->
+
                         <div class="generic-col light-blue">
                             
                         </div>
                         
+                        <!-- Search bar -->
                         <div class="flex justify-center">
                             <input type="text" placeholder="Cerca o inizia una nuova ricerca">
                         </div>
+                        <!-- /Search bar -->
+                        
 
-                        <div class="generic-col white">
+                        <div class="generic-col white" v-for="contact in contacts">
                             <div class="avatar-img">
-                                
+                                <img :src="`img/avatar${contact.avatar}.jpg`" :alt="">
                             </div>
                             <div>
                                 <p>{{ contacts[currentName].name }}</p>
