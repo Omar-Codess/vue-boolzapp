@@ -56,10 +56,10 @@
 
                         <div class="generic-col white" v-for="contact in contacts">
                             <div class="avatar-img">
-                                <img :src="`img/avatar${contact.avatar}.jpg`" :alt="">
+                                <img :src="`img/avatar${contact.avatar}.jpg`" alt="">
                             </div>
                             <div>
-                                <p>{{ contacts[currentName].name }}</p>
+                                <p>{{ contact.name }}</p>
                                 <p>Ultimo messaggio inviato</p>
                             </div>
                         </div>
