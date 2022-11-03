@@ -4,7 +4,7 @@ createApp({
     data() {
         return {
             currentName: 0,
-            currentAvatar: 0,
+            currentAvatar: `avatar`,
             contacts: [
                 {
                     name: 'Michele',
