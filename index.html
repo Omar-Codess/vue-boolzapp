@@ -1,22 +1,22 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Font awesome -->
+    Font awesome
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Google fonts -->
+    Google fonts
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-    <!-- Style css -->
+    Style css
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- Vue -->
+    Vue
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
     <title>Document</title>
@@ -27,7 +27,7 @@
             <div class="big-container">
                 <div class="small-container">
                     <div class="left-col">
-                        <!-- User bar -->
+                        User bar
                         <nav class="flex space-between align-center">
                             <div class="flex">
                                 <div class="avatar-img">
@@ -41,17 +41,17 @@
                                 <i class="fa-solid fa-ellipsis-vertical"></i>
                             </span>
                         </nav>
-                        <!-- /User bar -->
+                        /User bar
 
                         <div class="generic-col light-blue">
                             
                         </div>
                         
-                        <!-- Search bar -->
+                        Search bar
                         <div class="flex justify-center">
                             <input id="left-col-input" type="text" placeholder="Cerca o inizia una nuova ricerca">
                         </div>
-                        <!-- /Search bar -->
+                        /Search bar
                         
 
                         <div class="generic-col white" v-for="contact in contacts">
@@ -63,7 +63,7 @@
                                 <p>Ultimo messaggio inviato</p>
                             </div>
                         </div>
-                        <!-- <div class="generic-col white">
+                        <div class="generic-col white">
                             <div class="avatar-img">
                                 <img src="img/avatar_io.jpg" alt="">
                             </div>
@@ -126,7 +126,7 @@
                                 <p>Ultimo messaggio inviato</p>
                             </div>
                         </div> -->
-                    </div>
+                    <!-- </div>
                     <div class="right-col">
                         <nav class="flex align-center space-between">
                             <div class="flex">
@@ -145,17 +145,20 @@
                             </span>
                         </nav>
                         <div class="chat-container p-relative">
-                            <div class="message-row sent" v-for="contact in contacts">
-                                <div class="message" v-for="message in contact.messages">
-                                    {{ message.message }}
+                            <div class="message-row ">
+                                <div 
+                                    class="message" 
+                                    v-for="messageObj in contacts[activeContact].messages"
+                                    :class="`message--${messageObj.status}`">
+                                    {{ messageObj.message }}
                                 </div>
                             </div>
-                            <!-- <div class="message-row sent">
+                            <div class="message-row sent">
                                 <div class="message">Ricordati di stendere i panni</div>
                             </div>
                             <div class="message-row received">
                                 <div class="message">Tutto fatto!</div>
-                            </div> -->
+                            </div>
                             <footer class="new-message flex justify-center align-center">
                                 <input id="right-col-input" type="text" placeholder="Scrivi un messaggio">
                             </footer>
@@ -167,5 +170,160 @@
     </main>
 
     <script src="js/script.js"></script>
+</body>
+</html>  -->
+
+
+<!-- //////////////////////////////////////////////////////////////////// -->
+
+<!-- CORREZIONE -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Font awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato"
+      rel="stylesheet"
+    />
+    <!-- Custom style -->
+    <link rel="stylesheet" href="css/style.css" />
+    <!-- Vue JS -->
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+    <title>Document</title>
+</head>
+<body>
+  <div id="app" class="app-wrapper">
+    <div class="container">
+        <!-- Left side col -->
+        <div class="col left">
+            <!-- Col header -->
+            <header class="header">
+                <div class="header__user">
+                    <img class="avatar" src="img/avatar_io.jpg" alt="user avatar">
+                    <div class="header__text">
+                        <h3>Olga</h3>
+                    </div>
+                </div>
+                <div class="header__actions">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </header>
+            <!-- /Col header -->
+
+            <!-- Notifications -->
+            <section class="notifications"></section>
+            <!-- /Notifications -->
+
+            <!-- Search -->
+            <section class="search-section">
+                <div class="search">
+                    <label for="search-input" class="search__label">
+                        <span class="sr-only">Inizia la ricerca</span>
+                        <i class="fa fa-search"></i>
+                    </label>
+                    <input type="text" class="search__input" id="search-input" @keyup="filterContacts"/>
+                </div>
+            </section>
+            <!-- /Search -->
+
+            <!-- Contact list -->
+            <section class="contacts-list">
+                <!-- Contact item -->
+                <div class="contact" v-for="(contact, index) in contacts" @click="changeContact(index)">
+                    <div class="contact__image">
+                        <img 
+                            class="avatar" 
+                            :src="`img/avatar${contact.avatar}.jpg`" 
+                            alt="contact.name"
+                        />
+                    </div>
+                    <div class="contact__text">
+                        <div class="contact__user">
+                            <h3>{{ contact.name }}</h3>
+                            <p>ultimo messaggio</p>
+                        </div>
+                        <div class="contact__time">
+                            <small>12.00</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- /Contact item -->
+            </section>
+            <!-- /Contact list -->
+        </div>
+        <!-- /Left col sidebar -->
+
+        <!-- Right col main -->
+        <div class="col right">
+            <!-- Col header -->
+            <header class="header">
+                <div class="header__user">
+                    <img 
+                        class="avatar"
+                        :src="`img/avatar${currentContact.avatar}.jpg`" 
+                        alt="User avatar"
+                    />
+                    <div class="header__text">
+                        <h3>{{ currentContact.name }}</h3>
+                        <p>Ultimo accesso</p>
+                    </div>
+                </div>
+                <div class="header__actions">
+                    <i class="fas fa-circle-notch"></i>
+                    <i class="fas fa-comment-alt"></i>
+                    <i class="fas fa-ellipsis-v"></i>
+                </div>
+            </header>
+            <!-- /Col header -->
+
+            <!-- Messages -->
+            <section class="messages-section">
+                <!-- Single message -->
+                <div
+                    v-for="(messageObj, index) in currentContact.messages"
+                    class="message"
+                    :class="`message--${messageObj.status}`"
+                >
+                    <div class="message__box">
+                        <div class="message__text">{{ messageObj.message }}</div>
+                        <div class="message__time">
+                            <small>{{ messageObj.date }}</small>
+                        </div>
+                    </div>
+                </div>
+                <!-- //Single message -->
+            </section>
+            <!-- /Messages -->
+
+            <!-- New message -->
+            <footer class="new-message">
+                <div class="new-message__input">
+                    <input 
+                        type="text"
+                        v-model.trim="newMessage"
+                        @keyup.enter="addMessage"
+                    />
+                </div>
+            </footer>
+            <!-- /New message -->
+        </div>
+        <!-- /Right col main -->
+    </div>
+  </div>
+
+  <!-- <script src="js/script.js"></script> -->
 </body>
 </html>
