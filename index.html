@@ -199,131 +199,161 @@
     <!-- Custom style -->
     <link rel="stylesheet" href="css/style.css" />
     <!-- Vue JS -->
-    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- Luxon CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/luxon@3.0.3/build/global/luxon.min.js"></script>
     <title>Document</title>
-</head>
-<body>
-  <div id="app" class="app-wrapper">
-    <div class="container">
-        <!-- Left side col -->
+  </head>
+  <body>
+    <div id="app" class="app-wrapper">
+      <div class="container">
+        <!-- Left col sidebar -->
         <div class="col left">
-            <!-- Col header -->
-            <header class="header">
-                <div class="header__user">
-                    <img class="avatar" src="img/avatar_io.jpg" alt="user avatar">
-                    <div class="header__text">
-                        <h3>Olga</h3>
-                    </div>
-                </div>
-                <div class="header__actions">
-                    <i class="fas fa-circle-notch"></i>
-                    <i class="fas fa-comment-alt"></i>
-                    <i class="fas fa-ellipsis-v"></i>
-                </div>
-            </header>
-            <!-- /Col header -->
+          <!-- col header -->
+          <header class="header">
+            <div class="header__user">
+              <img class="avatar" src="img/avatar_io.jpg" alt="User avatar" />
+              <div class="header__text">
+                <h3>Olga</h3>
+              </div>
+            </div>
+            <div class="header__actions">
+              <i class="fas fa-circle-notch"></i>
+              <i class="fas fa-comment-alt"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </header>
+          <!-- /col header -->
 
-            <!-- Notifications -->
-            <section class="notifications"></section>
-            <!-- /Notifications -->
+          <!-- Notifications -->
+          <section class="notifications"></section>
+          <!-- /Notifications -->
 
-            <!-- Search -->
-            <section class="search-section">
-                <div class="search">
-                    <label for="search-input" class="search__label">
-                        <span class="sr-only">Inizia la ricerca</span>
-                        <i class="fa fa-search"></i>
-                    </label>
-                    <input type="text" class="search__input" id="search-input" @keyup="filterContacts"/>
-                </div>
-            </section>
-            <!-- /Search -->
+          <!-- Search -->
+          <section class="search-section">
+            <div class="search">
+              <label for="search-input" class="search__label">
+                <span class="sr-only">Inizia la ricerca</span>
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </label>
+              <input
+                type="text"
+                class="search__input"
+                id="search-input"
+                v-model="searchKey"
+                @keyup="filterContacts"
+              />
+            </div>
+          </section>
+          <!-- /Search -->
 
-            <!-- Contact list -->
-            <section class="contacts-list">
-                <!-- Contact item -->
-                <div class="contact" v-for="(contact, index) in contacts" @click="changeContact(index)">
-                    <div class="contact__image">
-                        <img 
-                            class="avatar" 
-                            :src="`img/avatar${contact.avatar}.jpg`" 
-                            alt="contact.name"
-                        />
-                    </div>
-                    <div class="contact__text">
-                        <div class="contact__user">
-                            <h3>{{ contact.name }}</h3>
-                            <p>ultimo messaggio</p>
-                        </div>
-                        <div class="contact__time">
-                            <small>12.00</small>
-                        </div>
-                    </div>
+          <!-- Contacts list -->
+          <section class="contacts-list">
+            <!-- Contact item -->
+            <template v-for="(contact, index) in contacts">
+              <div
+                v-if="contact.visible"
+                class="contact"
+                @click="changeContact(index)"
+              >
+                <div class="contact__image">
+                  <img
+                    class="avatar"
+                    :src="`img/avatar${contact.avatar}.jpg`"
+                    :alt="contact.name"
+                  />
                 </div>
-                <!-- /Contact item -->
-            </section>
-            <!-- /Contact list -->
+                <div class="contact__text">
+                  <div class="contact__user">
+                    <h3>{{ contact.name }}</h3>
+                    <p>{{ getLastMessage(index).message }}</p>
+                  </div>
+                  <div class="contact__time">
+                    <small>{{ getLastMessage(index).date }}</small>
+                  </div>
+                </div>
+              </div>
+            </template>
+            <!-- /Contact item -->
+          </section>
+          <!-- /Contacts list -->
         </div>
         <!-- /Left col sidebar -->
 
         <!-- Right col main -->
         <div class="col right">
-            <!-- Col header -->
-            <header class="header">
-                <div class="header__user">
-                    <img 
-                        class="avatar"
-                        :src="`img/avatar${currentContact.avatar}.jpg`" 
-                        alt="User avatar"
-                    />
-                    <div class="header__text">
-                        <h3>{{ currentContact.name }}</h3>
-                        <p>Ultimo accesso</p>
-                    </div>
-                </div>
-                <div class="header__actions">
-                    <i class="fas fa-circle-notch"></i>
-                    <i class="fas fa-comment-alt"></i>
-                    <i class="fas fa-ellipsis-v"></i>
-                </div>
-            </header>
-            <!-- /Col header -->
+          <!-- col header -->
+          <header class="header">
+            <div class="header__user">
+              <img
+                class="avatar"
+                :src="`img/avatar${currentContact.avatar}.jpg`"
+                alt="User avatar"
+              />
+              <div class="header__text">
+                <h3>{{ currentContact.name }}</h3>
+                <p>Ultimo accesso</p>
+              </div>
+            </div>
+            <div class="header__actions">
+              <i class="fas fa-circle-notch"></i>
+              <i class="fas fa-comment-alt"></i>
+              <i class="fas fa-ellipsis-v"></i>
+            </div>
+          </header>
+          <!-- /col header -->
 
-            <!-- Messages -->
-            <section class="messages-section">
-                <!-- Single message -->
+          <!-- Messages -->
+          <section class="messages-section">
+            <!-- Single Message -->
+            <div
+              v-for="(messageObj, index) in currentContact.messages"
+              class="message"
+              :class="`message--${messageObj.status}`"
+            >
+              <div class="message__box">
+                <div class="message__text">
+                  <span>{{ messageObj.message }}</span>
+                  <i
+                    class="fas fa-chevron-down"
+                    @click.stop="toggleMessageMenu(index)"
+                  ></i>
+                </div>
+                <div class="message__time">
+                  <small> {{ messageObj.date }} </small>
+                </div>
+                <!-- Message submenu -->
                 <div
-                    v-for="(messageObj, index) in currentContact.messages"
-                    class="message"
-                    :class="`message--${messageObj.status}`"
+                  class="message__actions"
+                  v-if="activeMessage.messageIndex === index && activeMessage.visible"
                 >
-                    <div class="message__box">
-                        <div class="message__text">{{ messageObj.message }}</div>
-                        <div class="message__time">
-                            <small>{{ messageObj.date }}</small>
-                        </div>
-                    </div>
+                  <ul>
+                    <li>Message info</li>
+                    <li @click="deleteMessage(index)">Delete message</li>
+                  </ul>
                 </div>
-                <!-- //Single message -->
-            </section>
-            <!-- /Messages -->
+              </div>
+            </div>
+            <!-- /Single Message -->
+          </section>
+          <!-- /Messages -->
 
-            <!-- New message -->
-            <footer class="new-message">
-                <div class="new-message__input">
-                    <input 
-                        type="text"
-                        v-model.trim="newMessage"
-                        @keyup.enter="addMessage"
-                    />
-                </div>
-            </footer>
-            <!-- /New message -->
+          <!-- New message -->
+          <footer class="new-message">
+            <div class="new-message__input">
+              <input
+                type="text"
+                v-model.trim="newMessage"
+                @keyup.enter="addMessage"
+              />
+            </div>
+          </footer>
+          <!-- /New message -->
         </div>
         <!-- /Right col main -->
+      </div>
     </div>
-  </div>
 
-  <!-- <script src="js/script.js"></script> -->
-</body>
+    <script src="js/script.js"></script>
+  </body>
 </html>
